@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
-@Table(name = "tb_categorias")
+@Table(name = "tb_produtos")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -30,5 +30,5 @@ public class Produto {
 
     private BigDecimal preco;
     private String foto;
-    //private Categoria categoria;
+    private Categoria categoria;
 }
