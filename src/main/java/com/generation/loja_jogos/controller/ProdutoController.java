@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -44,6 +45,16 @@ public class ProdutoController {
     @GetMapping("/nome/{nome}")
     public ResponseEntity<List<Produto>> getAllNome(@PathVariable String nome) {
         return ResponseEntity.ok().body(cadastro.getAllNomeProduto(nome));
+    }
+
+    @GetMapping("/maior-preco/{preco}")
+    public ResponseEntity<List<Produto>> maiorPreco(@PathVariable BigDecimal preco) {
+        return ResponseEntity.ok().body(cadastro.maiorPreco(preco));
+    }
+
+    @GetMapping("/menor-preco/{preco}")
+    public ResponseEntity<List<Produto>> menorPreco(@PathVariable BigDecimal preco) {
+        return ResponseEntity.ok().body(cadastro.menorPreco(preco));
     }
 
     @PutMapping
