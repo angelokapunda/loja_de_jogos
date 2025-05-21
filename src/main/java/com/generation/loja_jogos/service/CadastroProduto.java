@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -44,6 +45,14 @@ public class CadastroProduto {
 
     public List<Produto> getAllNomeProduto(String nome) {
         return produtoRepository.findAllByNomeContaining(nome);
+    }
+
+    public List<Produto> maiorPreco(BigDecimal preco) {
+        return produtoRepository.findByPrecoGreaterThan(preco);
+    }
+
+    public List<Produto> menorPreco(BigDecimal preco) {
+        return produtoRepository.findByPrecoLessThan(preco);
     }
 
     public void delete(Long id) {
